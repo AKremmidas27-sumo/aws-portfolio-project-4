@@ -1,5 +1,5 @@
 # aws-portfolio-project-4
-Capstone Project
+Capstone Project -SAA C03 Final Work (Hands-On)
 
 Task0:Inspecting your environment:
 	Inspect the Example VPC
@@ -147,11 +147,13 @@ Go to Cloud9 service to access the machine
 
 Database file is download successfully
 
+Mine:example.ckyqxbm3zb08.us-east-1.rds.amazonaws.com
 Important:
 	Go to Security Group and select Example-DB and add inbound rule for MYSQL/Aurora and source to cloud9 instance then only we can able to import the database
 
 then come back cloud9 instance
    	mysql -u admin -p --host <rds-endpoint>
+mine: mysql -u admin -p --host example.ckyqxbm3zb08.us-east-1.rds.amazonaws.com 
 
 	DB instance identifier-Example
 	Credentials Settings-admin
@@ -160,6 +162,8 @@ then come back cloud9 instance
 1.copy and paste
 
  mysql -u admin -p --host <endpoint>
+
+mine: mysql -u admin -p --host example.ckyqxbm3zb08.us-east-1.rds.amazonaws.com
 
 It asks password then give password(copy password from master password) then hit enter
 
@@ -175,6 +179,9 @@ If correct means it will show like this MySQL [(none)]>
 Import the file:
 
 	mysql -u admin -p exampledb --host <rds-endpoint> < Countrydatadump.sql
+mine: mysql -u admin -p exampledb --host example.ckyqxbm3zb08.us-east-1.rds.amazonaws.com < Countrydatadump.sql
+
+mine: mysql -u admin -p exampledb --host example.ckyqxbm3zb08.us-east-1.rds.amazonaws.com < Countrydatadump.sql
 
 It asks password then give password(copy password from master password) then hit enter
 
@@ -318,6 +325,17 @@ And check website and database are connected or not.
 
 Submit Your Work.
 
+added: inventory-APP  ssh- to bastion host.
+added: made own Key pair (Vockey2)
+added: added putty code 
+putty gen
+added: EC2 instance from AWS Capstone India: 
+added: select from countrydata_Final country
+added: Example app
+added: country wget dump link from aws india.
+added: cat get parameters.php in cloud 9 cat get-parameters.php
+tinkered with :Health checks target group from 30 seconds to ten sec.
+load table data on cloud 9.
 
 
 
