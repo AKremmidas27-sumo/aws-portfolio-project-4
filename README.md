@@ -1,341 +1,78 @@
 # aws-portfolio-project-4
 Capstone Project -SAA C03 Final Work (Hands-On)
 
-Task0:Inspecting your environment:
-	Inspect the Example VPC
-	Inspect the Subnets
-	inspect the Security Groups
-	Inspect the AMI
-Open VPC and collect the Private and Public subnet Info
-
-1)Subnet Info
-	Public subnet1-10.0.0.0/24
-	Public subnet2-10.0.1.0/24
-	Private Subnet1-10.0.2.0/23
-	Private Subnet2-10.0.4.0/23
-
-2)Security Groups Info
-	ALBSG-
-	Bastion-SG-
-	Example-DB-
-	Inventory-App-
-
-Task1: Create a MySql RDS database instance
-
-Step1:Create Subnet Groups
-	RDS-->Choose Subnet Groups
-Subnet Group Details
-	Name-Example-DB-subnet
-	Description-Example-DB-subnet
-	VPC-Select Example VPC
-Add Subnet
-	AZ-Select us-east-1a(private subnet 1) and us-east-1b1b(private subnet 2)
-	Subnet-Select the Private subnet1(10.0.2.0/23) and Private subnet2(10.0.4.0/23)
-
-Step2:Create Database
-	Navigate RDS Service in aws and create db instance
-	RDS-->Database-->Create Database
+# AWS Capstone Project – LAMP App with RDS, ALB, and Auto Scaling
 
-Create database:
-	Choose a database creation method-Standard create
-	Engine options-Select MySQL
-	Templates-Dev/Test
-	Availability and durability-Choose Multi-AZ DB instance
-Settings
-	DB instance identifier-Example
-Credentials Settings:
-	Master username-admin
-	Master password-password
-	Confirm password-password
-Instance Configuration:
-	DB instance class-Choose Burstable classes (includes t classes)-t3.micro
-Storage:
-	Storage type:General purpose
-	Allocated Storage -20GB
-Storage Autoscaling:
-	Enable storage autoscaling
+This project provisions a multi-tier AWS architecture for a PHP/MySQL inventory application, with automation and scaling for production-style deployment.
 
-Connectivity
-	Virtual private cloud (VPC)-Select Example VPC
-	Subnet Group-Example-DB-subnet(automatically choosed)
-	Public Access-No
-	VPC Security Group-Example-DB
+## Architecture Overview
 
-Database Authentication
-	Database authentication options-Password authentication
+- VPC with Public and Private subnets across two AZs.
+- RDS MySQL Multi-AZ database in private subnets.
+- Cloud9 for development and AMI creation.
+- LAMP stack web server running PHP application.
+- Systems Manager Parameter Store for DB credentials.
+- Application Load Balancerrouting traffic to private instances.
+- Auto Scaling Group for high availability.
 
-Database options
-	Initial database name-exampledb
-	Backup-uncheck it
-	Monitoring -Disable monitoring
+---
 
-Then click create database
+## Prerequisites
 
-Task2: Create Cloud9 Environment
+- AWS account with sufficient permissions.
+- Key pair for SSH access (optional if using Cloud9 direct access).
+- AWS CLI installed (optional but recommended).
 
-Navigate cloud9 
+---
 
-Create clould environment
+## Task 0 – Environment Inspection
 
-Step 1
-Name environment
-	Name-capstone project
-Step 2
-Configure settings
-	Environment type-ensure Direct access
+### Subnets
+- Public Subnet 1: `10.0.0.0/24` (us-east-1a)
+- Public Subnet 2: `10.0.1.0/24` (us-east-1b)
+- Private Subnet 1: `10.0.2.0/23` (us-east-1a)
+- Private Subnet 2: `10.0.4.0/23` (us-east-1b)
 
-	Instance type-t2.micro (1 GiB RAM + 1 vCPU)
+### Security Groups
+- `ALBSG` – ALB inbound 80/443 from 0.0.0.0/0
+- `Bastion-SG` – SSH inbound from your IP
+- `Example-DB` – MySQL inbound from app SG
+- `Inventory-App` – HTTP inbound from ALB SG
 
-	Platform-Amazon Linux 2 (recommended)
+---
 
-Network settings (advanced)
-	
-	Network (VPC)-Select Example VPC
+## Task 1 – Create MySQL RDS Instance
 
-	Subnet-Select Public Subnet2
-then click Next
+1. **Create Subnet Group**: `Example-DB-subnet` with private subnets in 1a and 1b.
+2. **Create DB**:
+   - Engine: MySQL
+   - Multi-AZ: Yes
+   - Instance: `t3.micro`
+   - Allocated storage: 20GB, autoscaling enabled
+   - Public access: No
+   - VPC SG: `Example-DB`
+   - Initial DB: `exampledb`
+   - Credentials: `admin` / `password` (lab use only)
 
-Step 3
-Review -Create Environment
+---
 
-Task3:Install a LAMP web server on Amazon Linux2 on cloud9 instance
+## Task 2 – Cloud9 Environment
 
-Step 1: Prepare the LAMP server
+- Name: `capstone project`
+- Instance: `t2.micro`, Amazon Linux 2
+- Network: Example VPC, Public Subnet 2
+- Direct access (no SSH key required)
 
-	#sudo yum update -y
-	#sudo amazon-linux-extras install -y lamp-mariadb10.2-php7.2 php7.2
-	#sudo yum install -y httpd mariadb-server
-	#sudo systemctl start httpd
-	#sudo systemctl enable httpd
-	#sudo systemctl is-enabled httpd
+---
 
-Step2-Download the project assets(copy from link from the capstone project)
+## Task 3 – Install LAMP and App Code
 
-//Download PHP Code:
-wget https://aws-tc-largeobjects.s3-us-west-2.amazonaws.com/ILT-TF-200-ACACAD-20-EN/capstone-project/Example.zip
-
-Then Come back to Cloud9 services and Unzip the php downloaded file by using 
-	ls
-	sudo unzip Example.zip 
-	sudo cp Example/* /var/www/html/ 
-	sudo rm Examble.zip
-
-Open the Amazon EC2 console at https://console.aws.amazon.com/ec2/
-
-Check public IP of Cloud9 EC2 instance and paste into new tab(Now Webpage is not showing)
-
-Solution:
-
-Choose Instances and select your instance.(Cloud9 created Instance-Start with aws-cloud9)
-
-On the Security tab, view the inbound rules. Add HTTP protocol with 0.0.0.0/0 then again refresh your webpage it will shows the webpage
-
-
-Task4:Import the Databse into the database
-
-	cd..
-
-//Download Database:
-wget https://aws-tc-largeobjects.s3-us-west-2.amazonaws.com/ILT-TF-200-ACACAD-20-EN/capstone-project/Countrydatadump.sql
-	ll or ls
-
-Again go to RDS dash board now your database instance is created(avilable)
-
-and Copy the endpoint of DB
-
-Go to Cloud9 service to access the machine
-
-Database file is download successfully
-
-Mine:example.ckyqxbm3zb08.us-east-1.rds.amazonaws.com
-Important:
-	Go to Security Group and select Example-DB and add inbound rule for MYSQL/Aurora and source to cloud9 instance then only we can able to import the database
-
-then come back cloud9 instance
-   	mysql -u admin -p --host <rds-endpoint>
-mine: mysql -u admin -p --host example.ckyqxbm3zb08.us-east-1.rds.amazonaws.com 
-
-	DB instance identifier-Example
-	Credentials Settings-admin
-	Master password-password
-
-1.copy and paste
-
- mysql -u admin -p --host <endpoint>
-
-mine: mysql -u admin -p --host example.ckyqxbm3zb08.us-east-1.rds.amazonaws.com
-
-It asks password then give password(copy password from master password) then hit enter
-
-If correct means it will show like this MySQL [(none)]>  
-	then type -show databases; then it will shows the tables in database
-	MySQL [(none)]>  use exampledb;
-	MySQL [exampledb]> show tables;
-	MySQL [exampledb]> exit;
-	MySQL [exampledb]> exit;
-	Bye
-	voclabs:~/environment $ 
-
-Import the file:
-
-	mysql -u admin -p exampledb --host <rds-endpoint> < Countrydatadump.sql
-mine: mysql -u admin -p exampledb --host example.ckyqxbm3zb08.us-east-1.rds.amazonaws.com < Countrydatadump.sql
-
-mine: mysql -u admin -p exampledb --host example.ckyqxbm3zb08.us-east-1.rds.amazonaws.com < Countrydatadump.sql
-
-It asks password then give password(copy password from master password) then hit enter
-
-Verify once again database is attached or not by using following command
-
-
-	mysql -u admin -p --host <endpoint>
-
-	MySQL [(none)]>  use exampledb;
-	MySQL [exampledb]> show tables;
-	MySQL [exampledb]> select*from countrydata_final;
-	MySQL [exampledb]> exit;
-
-Task5:Configure Parameter values in AWS systems manager
-
-Step1:
-Navigate to AWS systems manager and create parameter for following values
-
-	/example/endpoint   <rds-endpoint>
-	/example/username  admin
-	/example/password   password
-	/example/database   exampledb
-
-Step2:Modify IAM role to cloud9 instance
-
-Go to cloud9 EC2 instance and attach IAM role-Inventory-App-Role
-then refresh the web page again
-Now you can access the database successfully.
-
-Task6:Create AMI for Autoscaling(Cloud9 instance)
-
-In this step we take an AMI on cloud9 instance
-
-select cloud9 instance-->actions-->images and templates-->create image
-	
-	Image Name-CapstoneProjectAMI
-	Description-AMI for CapstoneProject
-Then create Image.
-It will takes few minutes.
-
-Task7-Create Load Balancer
- Step1:
-Create Load Balancer
-
-Go to EC2 console and select Load Balancer in new tab
-	Select Create Load Balancer
-	Select Application Load Balancer
-		Load balancer name-CapstoneProject-LB
-Network mapping
-	VPC-Select Example VPC
-	Mappings-Select both us-east-1a below subnet choose Public subnet1  & us-east-1b below subnet choose Public subnet2
-
-Security groups
-	Security groups-Select ALBSG security group
-
-Listeners and routing
-	Default action-Create Load Balancer
-
-Create Target Group:
-Step 1
-Specify group details:
-	Choose a target type-instance
-	Target group name-CapstoneProject-TG
-	VPC-Ensure Example VPC is selected then click next
-Step 2
-Register targets:
-	2 avilable Target is there so click create target Group(Don't select instances)
-
-Come back to Load balance and refresh this Listener and routing,now we can see created target group name and select it.
-
-	Select CapstoneProject-TG
-Then Click create Load Balancer
-
-Copy the DNS Name
-
-Task8-Create AutoScaling
-
-EC2 management console under Auto Scaling choose Auto Scaling Groups in new tab
-
-Create Auto Scaling group
-Step 1
-Choose launch template or configuration
-Name
-	Auto Scaling group name-NmindAcademy-ASG
-Launch template
-	Launch template-Choose Example-LT then modify the template
-	Change the AMI ID just now we created as CpstoneProjectAMI
-
-Select Example-LT go to details-->Actions-->Modify Templates
-
-Scroll down and on Launch Templates Contents choose our CapstoneProjectAMI ID then create it.
-
-Ensure the CapstoneProjectAMI ID is changed in out template then click next
-
-Step 2
-Choose instance launch options
-Network
-	VPC-Select Example VPC
-Availability Zones and subnets-Select Private subnet1 & Private subnet2 then click next
-
-Step 3 (optional)
-Configure advanced options
-	Load balancing - optional-Select Attach to an existing load balancer
-
-Attach to an existing load balancer
-	Existing load balancer target groups-Select CapstoneProject-LB
-	Health checks - Select ELB(check mark) then click next
-
-Step 4 (optional)
-Configure group size and scaling policies
-
-	Group size -Increase the group size like below
-Desired capacity
-2
-Minimum capacity
-2
-Maximum capacity
-2
-
-Then click Next
-
-Step 5 (optional)
-Add notifications
-
-Then click Next
-
-Step 6 (optional)
-Add tags
-	Add name tag and value as Nminds-CapstoneProject and click next
-
-Step 7
-Review  then click Create Auto Scaling group
-
-Task9:Check the ouput by using load balancer DNS name
-
-Go to Load balancer and copy that DNS name and paste it into new tab.
-
-And check website and database are connected or not.
-
-
-
-Submit Your Work.
-
-added: inventory-APP  ssh- to bastion host.
-added: made own Key pair (Vockey2)
-added: added putty code 
-putty gen
-added: EC2 instance from AWS Capstone India: 
-added: select from countrydata_Final country
-added: Example app
-added: country wget dump link from aws india.
-added: cat get parameters.php in cloud 9 cat get-parameters.php
-tinkered with :Health checks target group from 30 seconds to ten sec.
-load table data on cloud 9.
+```bash
+sudo yum update -y
+sudo amazon-linux-extras install -y lamp-mariadb10.2-php7.2 php7.2
+sudo yum install -y httpd mariadb-server unzip
+sudo systemctl start httpd
+sudo systemctl enable httpd
 
 
 
