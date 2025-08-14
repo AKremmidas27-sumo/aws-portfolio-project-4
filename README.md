@@ -1,5 +1,5 @@
 # aws-portfolio-project-4
-Capstone Project -SAA C03 Final Work (Hands-On)
+AWS Capstone Project -SAA C03 Final Work (Hands-On)
 
 # AWS Capstone Project – LAMP App with RDS, ALB, and Auto Scaling
 
