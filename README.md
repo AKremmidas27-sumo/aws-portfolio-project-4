@@ -15,15 +15,12 @@ This project provisions a multi-tier AWS architecture for a PHP/MySQL inventory 
 - Application Load Balancerrouting traffic to private instances.
 - Auto Scaling Group for high availability.
 
----
-
 ## Prerequisites
 
 - AWS account with sufficient permissions.
 - Key pair for SSH access (optional if using Cloud9 direct access).
 - AWS CLI installed (optional but recommended).
 
----
 
 ## Task 0 – Environment Inspection
 
