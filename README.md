@@ -5,8 +5,6 @@ AWS Capstone Project -SAA C03 Final Work (Hands-On)
 
 # AWS Portfolio Project #4  
 
-# Author - Andrew Kremmidas - AWS Solutions Architect Associate
-
 ## Capstone LAMP Web App — RDS + ALB + Auto Scaling (SAA-C03 Final Build)
 
 ### What This Project Demonstrates
@@ -135,3 +133,5 @@ Bake AMI from configured instance
 Deploy Auto Scaling Group using that AMI
 Attach ALB Target Group to ASG
 Test failover & auto-scaling behavior
+
+# Author - Andrew Kremmidas - AWS Solutions Architect Associate
