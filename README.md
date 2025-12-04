@@ -133,6 +133,10 @@ Amazon RDS MySQL (Multi-AZ Private)
 <img width="1920" height="1080" alt="MY IP INBOUND SECURITY RULES" src="https://github.com/user-attachments/assets/c3ceb49d-0d5f-4ec0-b8bb-ea0c350100cd" />
 <img width="1920" height="1080" alt="MYSQL " src="https://github.com/user-attachments/assets/9d586e70-5118-4741-9c0e-0b300b4ba8a6" />
 
+
+
+
+
 ```bash
 sudo yum update -y
 sudo amazon-linux-extras install -y lamp-mariadb10.2-php7.2 php7.2
@@ -148,14 +152,4 @@ Test failover & auto-scaling behavior
 
 # Author - Andrew Kremmidas - AWS Solutions Architect Associate
 
-<img width="1920" height="1080" alt="WEBSERVER INSTAUNCE LAUNCH SETTINGS" src="https://github.com/user-attachments/assets/2579f8a6-d26e-40c6-ba47-e89b820598e9" />
-<img width="1920" height="1080" alt="VPC" src="https://github.com/user-attachments/assets/186c0d04-f4b2-45b4-b102-f981e7e18a11" />
-<img width="1920" height="1080" alt="Subnets pic " src="https://github.com/user-attachments/assets/e8df77ff-bd96-4217-ae55-1addb4339b9b" />
-<img width="1920" height="1080" alt="Screenshot 2025-12-04 at 2 50 16 AM" src="https://github.com/user-attachments/assets/8d64bd7d-dd51-4b19-a13f-34bf8f0f84e8" />
-<img width="1920" height="1080" alt="Screenshot 2025-12-04 at 2 19 50 AM" src="https://github.com/user-attachments/assets/3e08c5ae-0f71-488e-9bfc-5655a23b22b2" />
-<img width="1920" height="1080" alt="Route table IGW association" src="https://github.com/user-attachments/assets/c0a73f03-b677-4be9-86b4-efbefc494a05" />
-<img width="1920" height="1080" alt="private subnets associated" src="https://github.com/user-attachments/assets/611c856e-68f3-4e8a-9c28-47f420c77d6f" />
-<img width="1920" height="1080" alt="NAT G " src="https://github.com/user-attachments/assets/3f1ad787-5f4a-47df-8d4d-521a2be74609" />
-<img width="1920" height="1080" alt="MY IP INBOUND SECURITY RULES" src="https://github.com/user-attachments/assets/c3ceb49d-0d5f-4ec0-b8bb-ea0c350100cd" />
-<img width="1920" height="1080" alt="MYSQL " src="https://github.com/user-attachments/assets/9d586e70-5118-4741-9c0e-0b300b4ba8a6" />
 
