@@ -81,7 +81,7 @@ Amazon RDS MySQL (Multi-AZ Private)
 | Private Subnet 1 | 10.0.2.0/23 | us-east-1a |
 | Private Subnet 2 | 10.0.4.0/23 | us-east-1b |
 
-### 🔒 Security Groups Overview
+### Security Groups Overview
 
 | SG Name | Allows | From |
 |--------|--------|------|
