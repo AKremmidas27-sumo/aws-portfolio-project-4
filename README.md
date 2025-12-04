@@ -5,7 +5,7 @@ AWS Capstone Project -SAA C03 Final Work (Hands-On)
 
 # AWS Portfolio Project #4  
 
-# Author - Andrew Kremmidas AWS Solutions Architect Associate
+# Author - Andrew Kremmidas - AWS Solutions Architect Associate
 
 ## Capstone LAMP Web App — RDS + ALB + Auto Scaling (SAA-C03 Final Build)
 
