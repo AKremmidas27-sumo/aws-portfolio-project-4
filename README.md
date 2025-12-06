@@ -121,8 +121,7 @@ Amazon RDS MySQL (Multi-AZ Private)
 
 ### Task 3 — EC2 LAMP Stack + App Code Installation
 
-
-<img width="1920" height="1080" alt="WEBSERVER INSTAUNCE LAUNCH SETTINGS" src="https://github.com/user-attachments/assets/2579f8a6-d26e-40c6-ba47-e89b820598e9" />
+<img width="1805" height="998" alt="WEBSERVER INSTAUNCE LAUNCH SETTINGS 2" src="https://github.com/user-attachments/assets/f06b5bed-487f-4f36-81a7-a26d13192f5b" />
 <img width="1920" height="1080" alt="VPC" src="https://github.com/user-attachments/assets/186c0d04-f4b2-45b4-b102-f981e7e18a11" />
 <img width="1920" height="1080" alt="Subnets pic " src="https://github.com/user-attachments/assets/e8df77ff-bd96-4217-ae55-1addb4339b9b" />
 <img width="1920" height="1080" alt="Screenshot 2025-12-04 at 2 50 16 AM" src="https://github.com/user-attachments/assets/8d64bd7d-dd51-4b19-a13f-34bf8f0f84e8" />
