@@ -125,7 +125,7 @@ Amazon RDS MySQL (Multi-AZ Private)
 <img width="1920" height="1080" alt="VPC" src="https://github.com/user-attachments/assets/186c0d04-f4b2-45b4-b102-f981e7e18a11" />
 <img width="1920" height="1080" alt="Subnets pic " src="https://github.com/user-attachments/assets/e8df77ff-bd96-4217-ae55-1addb4339b9b" />
 <img width="1920" height="1080" alt="Screenshot 2025-12-04 at 2 50 16 AM" src="https://github.com/user-attachments/assets/8d64bd7d-dd51-4b19-a13f-34bf8f0f84e8" />
-<img width="1920" height="1080" alt="Screenshot 2025-12-04 at 2 19 50 AM" src="https://github.com/user-attachments/assets/3e08c5ae-0f71-488e-9bfc-5655a23b22b2" />
+<img width="1913" height="969" alt="Pasted Graphic 2" src="https://github.com/user-attachments/assets/f9c945fb-d185-44e8-bf99-e8d1369ca60e" />
 <img width="1920" height="1080" alt="Route table IGW association" src="https://github.com/user-attachments/assets/c0a73f03-b677-4be9-86b4-efbefc494a05" />
 <img width="1920" height="1080" alt="private subnets associated" src="https://github.com/user-attachments/assets/611c856e-68f3-4e8a-9c28-47f420c77d6f" />
 <img width="1920" height="1080" alt="NAT G " src="https://github.com/user-attachments/assets/3f1ad787-5f4a-47df-8d4d-521a2be74609" />
