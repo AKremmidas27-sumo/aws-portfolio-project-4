@@ -129,7 +129,7 @@ Amazon RDS MySQL (Multi-AZ Private)
 <img width="1920" height="1080" alt="Route table IGW association" src="https://github.com/user-attachments/assets/c0a73f03-b677-4be9-86b4-efbefc494a05" />
 <img width="1920" height="1080" alt="private subnets associated" src="https://github.com/user-attachments/assets/611c856e-68f3-4e8a-9c28-47f420c77d6f" />
 <img width="1920" height="1080" alt="NAT G " src="https://github.com/user-attachments/assets/3f1ad787-5f4a-47df-8d4d-521a2be74609" />
-<img width="1920" height="1080" alt="MY IP INBOUND SECURITY RULES" src="https://github.com/user-attachments/assets/c3ceb49d-0d5f-4ec0-b8bb-ea0c350100cd" />
+<img width="1912" height="933" alt="image" src="https://github.com/user-attachments/assets/2735d355-3e4c-467b-89d3-e62dc03e0a52" />
 <img width="1920" height="1080" alt="MYSQL " src="https://github.com/user-attachments/assets/9d586e70-5118-4741-9c0e-0b300b4ba8a6" />
 <img width="1920" height="1080" alt="Screenshot 2025-12-04 at 1 35 47 AM" src="https://github.com/user-attachments/assets/29953204-1abc-410a-9fbd-275f616b3722" />
 
